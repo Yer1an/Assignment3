@@ -35,6 +35,7 @@ public class MyHashTable<K, V>{
         HashNode n = new HashNode<K,V>(key,value);
         if(chainArray[hash_index] == null){
             chainArray[hash_index] = n;
+            size++;
             return;
         }
         HashNode it = chainArray[hash_index];
@@ -71,6 +72,7 @@ public class MyHashTable<K, V>{
             V temp = chainArray[hash_index].value;
             chainArray[hash_index] = chainArray[hash_index].next;
             it.next = null;
+            size--;
             return temp;
         }
         HashNode prev = it;
