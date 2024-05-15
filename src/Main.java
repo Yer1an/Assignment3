@@ -1,5 +1,8 @@
+import java.util.Random;
+
 public class Main {
     public static void main(String[] args) {
+        //Just a test for Group and Student
         MyHashTable<Group, Student> table = new MyHashTable<>();
         Group group= new Group("MCS");
         Student student = new Student("Yerlan", 16);
@@ -13,8 +16,21 @@ public class Main {
         //Works well!
 
 
-        //Binary Search Tree:
+        //10000 element
+        System.out.println("//////////////////////////////////////////////////////////");
+        MyHashTable<Group, Student> hashTable = new MyHashTable<>(11);
+        Random random = new Random();
 
+        for(int i = 0; i < 10000; i++){
+            Group key = new Group("Group" + Integer.toString(random.nextInt(10000)));
+            Student value = new Student("Student name" + i, random.nextInt(10000));
+            hashTable.put(key,value);
+        }
+        System.out.println("The size number of each bucket:");
+        hashTable.bucketSize();
+
+        //Binary Search Tree:
+        System.out.println("//////////////////////////////////////////////////////////");
         BST<Integer, String> bst = new BST<>();
         bst.put(5, "Five");
         bst.put(3, "Three");
